@@ -35,8 +35,8 @@ public class DisplayNameCommand {
 
                         boolean success = AliasManager.setDisplayName(target, displayName);
                         if (success) {
-                            ctx.getSource().sendSuccess(() -> Component.literal(CustomDisplayName.SYSTEM_PREFIX + target.getGameProfile().getName() + "§f의 닉네임을 '" + displayName + "§f' (으)로 변경했습니다."), true);
-                            target.sendSystemMessage(Component.literal(CustomDisplayName.SYSTEM_PREFIX + "§f당신의 닉네임이 '" + displayName + "§f' (으)로 변경되었습니다."));
+                            ctx.getSource().sendSuccess(() -> Component.literal(CustomDisplayName.SYSTEM_PREFIX + target.getGameProfile().getName() + "§f의 닉네임을 '" + AliasManager.stripColor(displayName) + "§f' (으)로 변경했습니다."), true);
+                            target.sendSystemMessage(Component.literal(CustomDisplayName.SYSTEM_PREFIX + "§f당신의 닉네임이 '" + AliasManager.stripColor(displayName) + "§f' (으)로 변경되었습니다."));
                             return 1;
                         }
                         else {

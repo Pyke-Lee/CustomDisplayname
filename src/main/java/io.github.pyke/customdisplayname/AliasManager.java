@@ -65,7 +65,7 @@ public class AliasManager {
         String oldDisplayName = uuidToDisplayName.remove(uuid);
         if (null != oldDisplayName) { displayNameToUuid.remove(stripColor(oldDisplayName)); }
 
-        uuidToDisplayName.put(uuid, displayName);
+        uuidToDisplayName.put(uuid, plain);
         displayNameToUuid.put(plain, uuid);
         save();
         return true;
@@ -98,11 +98,6 @@ public class AliasManager {
         return null != player ? player.getGameProfile().getName() : null;
     }
 
-    public static String formatForRender(String displayName) {
-        if (null == displayName) { return null; }
-        return displayName.replaceAll("&([0-9a-fk-or])", "§$1");
-    }
-
     public static String stripColor(String displayName) {
         return displayName.replaceAll("(?i)&[0-9A-FK-OR]", "");
     }
@@ -110,6 +105,6 @@ public class AliasManager {
     public static net.minecraft.network.chat.Component getDisplayName(UUID uuid) {
         String displayName = uuidToDisplayName.get(uuid);
         if (null == displayName) { return null; }
-        return net.minecraft.network.chat.Component.literal(formatForRender(displayName));
+        return net.minecraft.network.chat.Component.literal(stripColor(displayName));
     }
 }

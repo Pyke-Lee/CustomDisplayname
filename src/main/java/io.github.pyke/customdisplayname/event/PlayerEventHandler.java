@@ -10,7 +10,6 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = CustomDisplayName.MOD_ID)
 public class PlayerEventHandler {
-
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onPlayerNameFormat(PlayerEvent.NameFormat event) {
         Component customDisplayName = AliasManager.getDisplayName(event.getEntity().getUUID());
