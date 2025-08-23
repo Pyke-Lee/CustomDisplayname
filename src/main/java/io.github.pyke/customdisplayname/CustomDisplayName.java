@@ -10,10 +10,10 @@ import net.minecraftforge.fml.common.Mod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Mod("customdisplayname")
+@Mod("custom_displayname")
 public class CustomDisplayName {
-    public static final String MOD_ID = "customdisplayname";
-    public static final String SYSTEM_PREFIX = "&6[SYSTEM] &r";
+    public static final String MOD_ID = "custom_displayname";
+    public static final String SYSTEM_PREFIX = "§6[SYSTEM] §r";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     public CustomDisplayName() {

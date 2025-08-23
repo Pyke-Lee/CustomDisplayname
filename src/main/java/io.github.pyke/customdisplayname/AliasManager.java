@@ -71,6 +71,22 @@ public class AliasManager {
         return true;
     }
 
+    public static boolean resetDisplayName(ServerPlayer player) {
+        UUID uuid = player.getUUID();
+
+        if (uuidToDisplayName.containsKey(uuid)) {
+            String oldDisplayName = uuidToDisplayName.get(uuid);
+
+            uuidToDisplayName.remove(uuid);
+            displayNameToUuid.remove(stripColor(oldDisplayName));
+
+            save();
+            return true;
+        }
+
+        return false;
+    }
+
     public static String getUuidToDisplayName(UUID uuid) {
         return uuidToDisplayName.get(uuid);
     }
